@@ -36,6 +36,7 @@ class Report(models.Model):
     def __str__(self):
         return self.customer.username[:20]
 
+
 class Branch(models.Model):
     name=models.CharField(max_length=20)
     manager=models.ForeignKey(User, on_delete=models.CASCADE)
@@ -45,6 +46,7 @@ class Branch(models.Model):
     couriers=models.ManyToManyField(Courier,related_name="couriers",blank=True)
     delivery=models.ManyToManyField(User,related_name="deliverys",blank=True)
     reports=models.ManyToManyField(Report,related_name="reports",blank=True)
+    
     def __str__(self):
         return self.name[:20]
 
